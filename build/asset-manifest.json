@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d5ccaa32.css",
+    "main.js": "/static/js/main.981040e1.js",
+    "static/media/sea.jpg": "/static/media/sea.a0461a471cde6b89ee74.jpg",
+    "static/media/oggy.jpg": "/static/media/oggy.d61be4871fcc9d9c0b73.jpg",
+    "static/media/avtaar.avif": "/static/media/avtaar.4ff300a7ea2ea8320998.avif",
+    "index.html": "/index.html",
+    "main.d5ccaa32.css.map": "/static/css/main.d5ccaa32.css.map",
+    "main.981040e1.js.map": "/static/js/main.981040e1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5ccaa32.css",
+    "static/js/main.981040e1.js"
+  ]
+}

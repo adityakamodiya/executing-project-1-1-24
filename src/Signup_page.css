@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+/* font-family: 'Open Sans', sans-serif; */
+}
+#signup-wrapper {
+    /* flex-direction: column; */
+
+    height: 100vh;
+    /* background: #00000040; */
+    display: flex;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+}
+form {         
+    padding: 7%;
+    display: flex;
+    border: 0px solid;
+    border-radius: 6px;
+    flex-direction: column;
+    background: #00000042;
+    box-shadow: 0px 0px 10px -2px;
+    transition: .5s all ease-in-out;
+}
+form:hover{
+    transform: scale(1.2);
+    
+  
+}
+form .age-section{
+    display: flex;
+    align-items: center;
+}
+form input{
+    margin: 3% 0;
+    padding: 2% 0;
+    border-radius: 5px;
+    border: white;
+}
+#signup_password {
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0 5px; */
+}
+#signup_password .rechecking-input{
+    transition: 1s all ease-in-out;
+    position: absolute;
+    left: 30%;
+    top: 48%;
+    font-size: 14px;
+}
+#select_city{
+    display: flex;
+    justify-content: space-evenly;
+}
+#select_city select{
+    height: auto;
+}
+.gender {
+    display: flex;
+    align-items: center;
+}
+.submit-button {
+    text-align: center;
+}
+.submit-button button {
+    padding: 2% 10%;
+    border-radius: 6%;
+    border: white;
+}
+.submit-button button:hover {
+    box-shadow: 1px 1px 10px 2px;
+}

@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#profile-wrapper{
+    height: 100vh;
+    background-color: gray;
+  
+    /* display; */
+}
+
+
+.profile-pic-username {
+    justify-content: center;
+    align-items: start;
+    padding: 0 1%;
+    flex-direction: column;
+    height: 23%;
+    display: flex;
+}
+.picture {
+    height: 100PX;
+    width: 100PX;
+    /* border: 1px solid; */
+    text-align: center;
+    border: 1 px solid;
+    /* border-radius: 50%; */
+    border-radius: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
