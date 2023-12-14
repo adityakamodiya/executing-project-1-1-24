@@ -13,7 +13,7 @@ function automatically_show(){
     canvas.style.display = 'none'
 if(i===3)
      clearInterval(interval)
-  }, 3000);
+  }, 10000);
 
 }
 automatically_show()

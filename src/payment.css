@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#payment-wrapper{
+    display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+flex-direction: column;
+}
+.payment-box{
+    height: 100px;
+    width: 100px;
+    border: 1px solid;
+    display: flex;
+    margin-bottom: 2%;
+    border-radius: 5px ;
+    box-shadow: 0px 0px 1px 1px black;
+    justify-content: center;
+    align-items: center;
+    
+}

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import "./payment.css"
 
 
 function Payment() {
@@ -43,7 +44,14 @@ function Payment() {
     
       return (
         <>
-          <button onClick={() => openPayModal(options)}>Pay</button>
+          {/* <button onClick={() => openPayModal(options)}>Pay</button> */}
+          <div id="payment-wrapper">
+                   <div onClick={() => openPayModal(options)} className="payment-box">pay here</div>  
+                   <div onClick={() => openPayModal(options)} className="payment-box">pay here</div>  
+                   <div onClick={() => openPayModal(options)} className="payment-box">pay here</div>  
+                   <div onClick={() => openPayModal(options)} className="payment-box">pay here</div>  
+ 
+          </div>
         </>
       );
 }

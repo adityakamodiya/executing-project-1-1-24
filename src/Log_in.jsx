@@ -21,7 +21,10 @@ function log_in_user(e,name) {
   // console.log(d)           
     e.preventDefault()
     // console.log("hello")
-    axios.post('https://project-1-1-24-backend1.onrender.com/login',{
+    // https://project-1-1-24-backend1.onrender.com/login
+    
+
+    axios.post('http://localhost:8001/login',{
       username,password
     })
     .then((res)=>{
