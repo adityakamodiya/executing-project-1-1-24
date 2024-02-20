@@ -17,7 +17,7 @@ function Profile() {
   // console.log(streak)
   
     function getimg(){
-      console.log('hello')
+      console.log('hello0')
       axios.get('http://localhost:8001/aaja')
       .then((res) => { console.log("../../back/"+res.data[0].path,res) 
         setlaya(res.data[0].path)     
