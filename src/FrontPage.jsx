@@ -33,7 +33,7 @@ let x = localStorage.getItem('loginvar')
                        <li><Link to='/profile'>profile </Link></li>
                        :<li><Link to='/login'>Log in</Link></li>
                     }
-                       <li><Link to='/'>icon 4</Link></li>
+                       <li><Link to='/tasks'>icon 4</Link></li>
                     </ul>
                     </div>
                 </div>

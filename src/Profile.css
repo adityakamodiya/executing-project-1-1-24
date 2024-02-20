@@ -31,3 +31,38 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+
+#profile-boxes {
+    width: 100%;
+    height: 150px;
+    /* box-sizing: border-box; */
+    white-space: nowrap;
+    overflow-x: scroll;
+    /* background: #f5f5f5; */
+}
+  
+  .profile-box {
+    width: 180px;
+    height: 100%;
+    margin: 0 15px;
+    border: 1px solid;
+    border-radius: 50%;
+    box-sizing: border-box;
+    /* background: #3b3b3b; */
+    display: inline-block;
+}
+.profile-box img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    /* overflow: hidden; */
+}
+
+.laya {
+    height: 100px ;
+    width: 100px;
+    border: 1px solid;
+
+}
