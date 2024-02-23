@@ -13,15 +13,46 @@ import axios from 'axios'
 
 function Profile() {
   const {loginvar, profileData,streak} = useContext(MyWebContext)
-  const [laya,setlaya] = useState('')
+  const [imagePath,setImagePath] = useState(false)
+  const[cloudName,setcloudname] = useState('')
+  const[imagePublicId,setid]=useState('')
   // console.log(streak)
   
-    function getimg(){
-      console.log('hello0')
-      axios.get('http://localhost:8001/aaja')
-      .then((res) => { console.log("../../back/"+res.data[0].path,res) 
-        setlaya(res.data[0].path)     
-      })
+    function getimg(){{
+setcloudname('adityascloud')
+setid('rajasthan')
+setImagePath(true)
+      // console.log(image1)
+      // axios.get('http://localhost:8001/aaja')
+      // .then((res) => { 
+      //   console.log("../../back/"+res.data[0].path,res) 
+      //   setlaya(res.data[0].path)     
+      // })
+      
+
+      
+        try {
+          // Replace 'your_cloud_name' with your Cloudinary cloud name
+          const cloudName = 'adityascloud';
+  
+          // Replace 'your_image_public_id' with the public ID of your image on Cloudinary
+          const imagePublicId = 'rajasthan';
+  
+          // Cloudinary API URL to get the image path
+          axios.get(`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`)
+            .then((response)=>{
+             console.log(response)
+              // setImagePath(response.data.url);
+            })
+          // Make a GET request using Axios
+        
+  
+          // Set the image path in the state
+        } catch (error) {
+          console.error('Error fetching image path:', error);
+        }
+      };
+    
 
     }
 
@@ -51,8 +82,8 @@ function Profile() {
 
       <div id="laya">
         {  
-        (laya)?
-         <img className='laya' src={laya} alt="" />:
+        (imagePath)?
+         <img className='laya' src={`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`}alt="" />:
          ''
         }
          </div>
