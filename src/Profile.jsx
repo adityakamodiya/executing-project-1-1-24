@@ -31,26 +31,7 @@ setImagePath(true)
       
 
       
-        try {
-          // Replace 'your_cloud_name' with your Cloudinary cloud name
-          const cloudName = 'adityascloud';
-  
-          // Replace 'your_image_public_id' with the public ID of your image on Cloudinary
-          const imagePublicId = 'rajasthan';
-  
-          // Cloudinary API URL to get the image path
-          axios.get(`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`)
-            .then((response)=>{
-             console.log(response)
-              // setImagePath(response.data.url);
-            })
-          // Make a GET request using Axios
         
-  
-          // Set the image path in the state
-        } catch (error) {
-          console.error('Error fetching image path:', error);
-        }
       };
     
 
