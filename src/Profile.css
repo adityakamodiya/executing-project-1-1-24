@@ -31,7 +31,11 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.picture img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
 
 
 #profile-boxes {
