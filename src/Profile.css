@@ -6,11 +6,16 @@
 #profile-wrapper{
     height: 100vh;
     background-color: gray;
+    position: relative;
   
     /* display; */
 }
 
-
+#profile-change-alert{
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
 .profile-pic-username {
     justify-content: center;
     align-items: start;

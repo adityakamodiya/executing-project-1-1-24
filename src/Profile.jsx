@@ -20,8 +20,13 @@ function Profile() {
   // console.log(streak)
 
   function getimg(e, img) {
+     let profile_alert = document.querySelector('#profile-change-alert')
+     profile_alert.style.display = 'block' 
+
     {
       console.log(img)
+      // alert('do u want to change your profile')
+      // prompt('do u want to change your profile')
       setcloudname('adityascloud')
       setid(img)
       setdefaultProfile(`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`)
@@ -43,7 +48,10 @@ function Profile() {
 
 
   }
-
+   
+  function changeProfile(e,y){
+    console.log(y)
+  }
 
   return (
 
@@ -51,6 +59,12 @@ function Profile() {
       {/* { */}
       {/* // (loginvar)? */}
       <div id="profile-wrapper">
+        <div id="profile-change-alert" style={{'display':'none'}} >
+          <p>do you want to change your profile</p>
+          <button onClick={(e)=>changeProfile(e,'yes')}>yes</button>
+          <button>no</button>
+        </div>
+
         <div className="profile-pic-username">
           <div className="picture"  >
             {(defaultProfile == profile) ?
