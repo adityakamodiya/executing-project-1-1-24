@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { MyWebContext } from './Main'
 import { Link } from 'react-router-dom'
 import './Profile.css'
@@ -17,30 +17,32 @@ function Profile() {
   const [cloudName, setcloudname] = useState('')
   const [imagePublicId, setid] = useState('')
   const [defaultProfile, setdefaultProfile] = useState(profile)
+  const[clickimg,setclickimg] = useState('')
   // console.log(streak)
+
+  useEffect(()=>{
+    axios.get('http://localhost:8001/myprofile')
+    .then((res)=>{
+      console.log(res)
+    })
+  },[])
+
 
   function getimg(e, img) {
      let profile_alert = document.querySelector('#profile-change-alert')
      profile_alert.style.display = 'block' 
 
     {
-      console.log(img)
-      // alert('do u want to change your profile')
-      // prompt('do u want to change your profile')
+      // var clickimg = img
+      setclickimg(img)
+      // console.log(clickimg)
       setcloudname('adityascloud')
       setid(img)
       setdefaultProfile(`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`)
-      console.log(defaultProfile)
+      // console.log(defaultProfile)
       setImagePath(true)
       // console.log(image1)
-      // axios.get('http://localhost:8001/aaja')
-      // .then((res) => { 
-      //   console.log("../../back/"+res.data[0].path,res) 
-      //   setlaya(res.data[0].path)     
-      // })
-      // axios.post('http://localhost:8001/sendprofile',{
-
-      // })
+      
 
 
 
@@ -48,9 +50,21 @@ function Profile() {
 
 
   }
-   
+
+
   function changeProfile(e,y){
-    console.log(y)
+    console.log(profileData)
+    console.log(clickimg)
+
+    let profile_alert = document.querySelector('#profile-change-alert')
+    profile_alert.style.display = 'none'
+    alert("profile is changed")    
+    axios.post("http://localhost:8001/profile", {
+      profileData,clickimg
+    })
+    .then((response) => {
+      console.log(response);
+    });
   }
 
   return (
