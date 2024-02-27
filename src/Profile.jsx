@@ -18,14 +18,29 @@ function Profile() {
   const [imagePublicId, setid] = useState('')
   const [defaultProfile, setdefaultProfile] = useState(profile)
   const[clickimg,setclickimg] = useState('')
+  const[pp,setpp] = useState(true)
   // console.log(streak)
 
   useEffect(()=>{
     axios.get('http://localhost:8001/myprofile')
     .then((res)=>{
-      console.log(res)
+      console.log(res.data)
+      if(profileData)
+      {
+        res.data.forEach(element => {
+          if(profileData == element.profileData){
+            console.log(profileData,element.clickimg)
+            setid(element.clickimg) 
+            setcloudname('adityascloud')
+            setpp(false)
+            console.log(imagePublicId)
+        }
+
+        });
+      }
     })
   },[])
+
 
 
   function getimg(e, img) {
@@ -70,8 +85,9 @@ function Profile() {
   return (
 
     <>
-      {/* { */}
-      {/* // (loginvar)? */}
+      
+
+
       <div id="profile-wrapper">
         <div id="profile-change-alert" style={{'display':'none'}} >
           <p>do you want to change your profile</p>
@@ -81,9 +97,9 @@ function Profile() {
 
         <div className="profile-pic-username">
           <div className="picture"  >
-            {(defaultProfile == profile) ?
+            {(defaultProfile == profile && pp ) ?
               <img src={defaultProfile} alt="" /> :
-              <img src={`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`}></img>
+              <img className='laya' src={`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`} alt="" /> 
             }</div>
           <h1>{'hey...' + profileData}</h1>
           <h4>streak=:</h4>
@@ -100,16 +116,9 @@ function Profile() {
         </div>
 
 
-        <div id="laya">
-          {
-            (imagePath) ?
-              <img className='laya' src={`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`} alt="" /> :
-              ''
-          }
-        </div>
 
       </div>
-      {/* // :'not found'} */}
+
     </>
   )
 }
