@@ -22,7 +22,7 @@ function Main() {
     <MyWebContext.Provider value={{profileData,setprofileData,loginvar,setloginvar,streak,setstreak}}>
    <BrowserRouter>
     <Routes>
-    <Route path='/' element ={<Profile/>}></Route>  
+    <Route path='/' element ={<FrontPage/>}></Route>  
     <Route path='/signup' element ={<Sign_Up/>}></Route>  
     <Route path='/login' element ={<Log_in/>}></Route>  
       <Route path='/profile' element ={<Profile/>} />
