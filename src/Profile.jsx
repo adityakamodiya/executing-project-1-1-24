@@ -22,7 +22,7 @@ function Profile() {
   // console.log(streak)
 
   useEffect(()=>{
-    axios.get('http://localhost:8001/myprofile')
+    axios.get('https://project-1-1-24-backend1.onrender.com/WholeProfiles')
     .then((res)=>{
       console.log(res.data)
       if(profileData)
@@ -74,7 +74,7 @@ function Profile() {
     let profile_alert = document.querySelector('#profile-change-alert')
     profile_alert.style.display = 'none'
     alert("profile is changed")    
-    axios.post("http://localhost:8001/profile", {
+    axios.post("https://project-1-1-24-backend1.onrender.com/Myprofile", {
       profileData,clickimg
     })
     .then((response) => {
