@@ -17,7 +17,7 @@ function UserAddToDataBase(e){
    e.preventDefault()
    if(password ===confirmPassword){
       console.log(username,age,password,city,gender)
-      axios.post('https://project-1-1-24-backend1.onrender.com/receive',{
+      axios.post('http://localhost:8001receive',{
          username,age,password,city,gender
       })
       .then((res)=>{

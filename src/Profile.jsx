@@ -2,11 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { MyWebContext } from './Main'
 import { Link } from 'react-router-dom'
 import './Profile.css'
-import image1 from './profileImages/img1.jpg'
-import image2 from './profileImages/img2.jpg'
-import image3 from './profileImages/img3.jpg'
-import image4 from './profileImages/img4.jpg'
-import image5 from './profileImages/img5.jpg'
+
 // import im from '../../back/UploadprofileImages'
 import profile from './images/oggy.jpg'
 import axios from 'axios'
@@ -22,7 +18,7 @@ function Profile() {
   // console.log(streak)
 
   useEffect(()=>{
-    axios.get('https://project-1-1-24-backend1.onrender.com/WholeProfiles')
+    axios.get('http://localhost:8001/WholeProfiles')
     .then((res)=>{
       console.log(res.data)
       if(profileData)
@@ -74,7 +70,7 @@ function Profile() {
     let profile_alert = document.querySelector('#profile-change-alert')
     profile_alert.style.display = 'none'
     alert("profile is changed")    
-    axios.post("https://project-1-1-24-backend1.onrender.com/Myprofile", {
+    axios.post("http://localhost:8001/Myprofile", {
       profileData,clickimg
     })
     .then((response) => {
@@ -107,12 +103,12 @@ function Profile() {
 
         </div>
         <div id="profile-boxes">
-          <div className="profile-box">
-            <img src={image1} alt="" onClick={(e) => { getimg(e, 'img1') }} />
-          </div>
-          <div className="profile-box"><img src={image2} alt="" onClick={(e) => { getimg(e, 'img2') }} /></div>
-          <div className="profile-box"><img src={image3} alt="" onClick={(e) => { getimg(e, 'img3') }} /></div>
-          <div className="profile-box"><img src={image4} alt="" onClick={(e) => { getimg(e, 'img4') }} /></div>
+        
+          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img1`} alt="" onClick={(e) => { getimg(e, 'img1') }} /></div>
+          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img2`} alt="" onClick={(e) => { getimg(e, 'img2') }} /></div>
+          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img3`} alt="" onClick={(e) => { getimg(e, 'img3') }} /></div>
+          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img4`} alt="" onClick={(e) => { getimg(e, 'img4') }} /></div>
+          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img5`} alt="" onClick={(e) => { getimg(e, 'img5') }} /></div>
         </div>
 
 

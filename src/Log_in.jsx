@@ -24,7 +24,7 @@ function log_in_user(e,name) {
     // http://localhost:8001/login
     
 
-    axios.post('https://project-1-1-24-backend1.onrender.com/login',{
+    axios.post('http://localhost:8001/login',{
       username,password
     })
     .then((res)=>{
