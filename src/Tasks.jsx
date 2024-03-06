@@ -4,27 +4,36 @@ import { MyWebContext } from './Main';
 function Tasks() {
 
 
-  const{streak,setstreak}  = useContext(MyWebContext)
+  const { streak, setstreak } = useContext(MyWebContext)
 
-function automatically_show(){
-  let i=3;
-  let interval = setInterval(() => {
-    let canvas = document.querySelector("#scratch");
-    canvas.style.display = 'none'
-if(i===3)
-     clearInterval(interval)
-  }, 10000);
+  function automatically_show() {
+    let i = 3;
+    let interval = setInterval(() => {
+      let canvas = document.querySelector("#scratch");
+      canvas.style.display = 'none'
+      // alert('hello')
+      let video = document.createElement('video')
+      let source = document.createElement('source')
+      let base = document.querySelector('.base')
+      // source.src = `https://res.cloudinary.com/adityascloud/image/upload/bullet`
 
-}
-automatically_show()
+      video.append(source)
+      base.append(video)
 
-function streak_continue(e){
-  e.preventDefault()
-  console.log(e.target) 
-  e.target.disabled = true
-  setstreak(true)
-  // console.log(streak)  
-}
+      if (i === 3)
+        clearInterval(interval)
+    }, 10000);
+
+  }
+  automatically_show()
+
+  function streak_continue(e) {
+    e.preventDefault()
+    console.log(e.target)
+    e.target.disabled = true
+    setstreak(true)
+    // console.log(streak)  
+  }
 
 
   function func() {
@@ -122,13 +131,28 @@ function streak_continue(e){
       {/* <h1>tasks page</h1> */}
 
       <div id="wrapper">
-        <div class="container">
-          <div class="base">
-            <h4>kya dekh rhe h aap </h4>
-            <h3>yha pr???</h3>
-            <button onClick={(e) => { streak_continue(e)}}>run you streak </button>
+        <div id="background">
+          <div className="box-positions">
+            <div className="box   box1"></div>
+            <div className="box circle circle1"></div>
+            <div className="box box2"></div>
+            <div className="box box3"></div>
+            <div className="box circle circle2"></div>
+            <div className="box circle circle3"></div>
+            <div className="box box4"></div>
+            <div className="box circle circle4"></div>
           </div>
-          <canvas id="scratch" width="200" height="200"></canvas>
+        </div>
+        <div id="scratch-box">
+          <div class="container">
+            <div class="base">
+              <h4>kya dekh rhe h aap </h4>
+              <h3>yha pr???</h3>
+
+              <button onClick={(e) => { streak_continue(e) }}>run you streak </button>
+            </div>
+            <canvas id="scratch" width="200" height="200"></canvas>
+          </div>
         </div>
 
       </div>

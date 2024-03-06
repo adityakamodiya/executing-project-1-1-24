@@ -5,7 +5,8 @@
   }
   #wrapper {
     height: 100vh;
-    background: linear-gradient(135deg, #c3a3f1, #6414e9);
+    position: relative;
+    /* background: linear-gradient(135deg, #c3a3f1, #6414e9); */
   }
   .container {
     width: 300px;
@@ -57,4 +58,107 @@
     -webkit-user-select: none;
     user-select: none;
   }
+  #background{
+    background-color: #746e7e;
+    position: absolute;
+    z-index: -1;
+    border: 5px solid;
+    height: 100vh;
+    width: 100%;
+  }
+  .box-positions{
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+.box{
+  
+    background: repeating-linear-gradient(45deg, black, transparent 100px);
+
+  height: 100px;
+  width: 100px;border: 1px solid;
+}
+.box1{
+  position: absolute;
+  left: 20%;
+  top: 5%;
+  animation: box1 10s ;
+  /* animation-fill-mode: both; */
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+.circle1{
+  position: absolute;
+  top: 16%;
+  left: 25%;
+}
+.circle3{
+  position: absolute;
+  top: 38%;
+  left: 3%;
+}
+.circle4{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  animation: circle4 9s ;
+  /* animation-fill-mode: both; */
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+.circle2{
+  position: absolute;
+  top: 49%;
+  left: 77%;
+}
+.box2{
+  position: absolute;
+  left: 50%;
+
+}
+.box3{
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  animation: box3 10s ;
+  /* animation-fill-mode: both; */
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+.circle{
+  border-radius: 50%;
+}
+
+  
+.box4{
+  position: absolute;
+  top: 80%;
+  left: 5%;
+}
+
+@keyframes box1  {
+  from{
+    top:50% ;
+  }
+  to{
+    top:5% ;
+  }
+}
+@keyframes  box3{
+  from{
+    top: 85%;
+  }
+  to{
+    top: 60%;
+  }
+  
+}
+@keyframes circle4 {
+  from{
+top: 10%;
+  }
+  to{
+    top: 80%;
+  }
+}
   
