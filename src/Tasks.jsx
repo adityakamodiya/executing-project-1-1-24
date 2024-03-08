@@ -1,11 +1,12 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Task.css'
 import { MyWebContext } from './Main';
 function Tasks() {
-
-
   const { streak, setstreak } = useContext(MyWebContext)
+  const [scratchContent, setscratchContent] = useState('')
 
+
+  // THIS FUNCTION AUTOMATICAALY SHWOWS THE CONTENT WHICH IS INSIDE THE SCRATCH  ,AFTER A FEW SECONDS
   function automatically_show() {
     let i = 3;
     let interval = setInterval(() => {
@@ -26,7 +27,7 @@ function Tasks() {
 
   }
   automatically_show()
-
+  //  THIS IS THE FUNCTION WHICH MAINTAINS STREAKS
   function streak_continue(e) {
     e.preventDefault()
     console.log(e.target)
@@ -35,8 +36,8 @@ function Tasks() {
     // console.log(streak)  
   }
 
-
-  function func() {
+  // THIS IS SCRATCH CARD FUNCTION WHICH IS SHOWING SCRATCH
+  function ScrathcCard() {
 
     let canvas = document.getElementById("scratch");
     let context = canvas.getContext("2d");
@@ -124,12 +125,34 @@ function Tasks() {
     // console.log('streak')
   }
   useEffect(() => {
-    func()
+
+    ScrathcCard()
   }, [])
+
+  // THIS FUNCTION RETURN THE RANDOM CATEGORY WHICH WILL BE DISPLAYED IN SCRATCH 
+  function select_category() {
+    let Categories = ['jhonybhaiya'];
+    let select_random_category = Categories[Math.floor(Math.random() * 1)]
+    //  console.log(select_random_category)
+    return select_random_category;
+  }
+
+  // select_category();
+  function Call_Content() {
+    let random_number = Math.floor(Math.random() * 10)
+    setscratchContent(select_category() + random_number)
+    console.log(select_category() + random_number)
+
+  }
+
+  useEffect(() => {
+    Call_Content();
+  }, [])
+
+
+
   return (
     <>
-      {/* <h1>tasks page</h1> */}
-
       <div id="wrapper">
         <div id="background">
           <div className="box-positions">
@@ -146,10 +169,12 @@ function Tasks() {
         <div id="scratch-box">
           <div class="container">
             <div class="base">
-              <h4>kya dekh rhe h aap </h4>
-              <h3>yha pr???</h3>
+              {
+                (scratchContent)?
+                <img className='content-image' src={`https://res.cloudinary.com/adityascloud/image/upload/Taskfolder1/${scratchContent}`} alt="" />:''
 
-              <button onClick={(e) => { streak_continue(e) }}>run you streak </button>
+              }    
+                  <button onClick={(e) => { streak_continue(e) }}>run you streak </button>
             </div>
             <canvas id="scratch" width="200" height="200"></canvas>
           </div>
