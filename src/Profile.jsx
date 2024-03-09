@@ -52,7 +52,7 @@ function Profile() {
       setdefaultProfile(`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`)
       // console.log(defaultProfile)
       setImagePath(true)
-      // console.log(image1)
+
       
 
 
