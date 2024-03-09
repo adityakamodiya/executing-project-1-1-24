@@ -153,7 +153,7 @@ function Tasks() {
 
 // THIS FUNCTION WILL SELECT FOLDERS
      function select_folder(select_random){
-      let folders = ['Taskfolder1','jethalal'];
+      let folders = ['Taskfolder1','jethalal','tomAndjerry'];
       // console.log(folders[random]);
       return folders[select_random];  
       // console.log(select_random)
@@ -164,7 +164,7 @@ function Tasks() {
   // THIS FUNCTION RETURN THE RANDOM CATEGORY WHICH WILL BE DISPLAYED IN SCRATCH 
   function select_category(select_random) {
 
-    let Categories = ['jhonybhaiya','nobita'];
+    let Categories = ['jhonybhaiya','nobita','tomAndjerry'];
     
 
       return Categories[select_random];
@@ -175,16 +175,15 @@ function Tasks() {
 
   
 
-
   function Call_Content() {
-  let select_random = Math.floor(Math.random() * 2)
+  let select_random = Math.floor(Math.random() * 3)
   
     let random_number = Math.floor(Math.random() * 5)
     
     setfolder(select_folder(select_random))
     setcategories(select_category(select_random) + random_number)
     
-    console.log(select_folder(select_random),select_category(select_random)+random_number);
+    // console.log(select_folder(select_random),select_category(select_random)+random_number);
   }
 
   useEffect(() => {
