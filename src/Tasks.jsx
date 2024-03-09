@@ -33,7 +33,7 @@ function Tasks() {
 
   }
   automatically_show()
-  //  THIS IS THE FUNCTION WHICH MAINTAINS STREAKS
+  //  THIS IS THE FUNCTION WHICH MAINTAINS STREAKS OF USER
   function streak_continue(e) {
     e.preventDefault()
     console.log(e.target)
@@ -177,8 +177,7 @@ function Tasks() {
 
 
   function Call_Content() {
-      let select_random = Math.floor(Math.random() * 2);
-
+  let select_random = Math.floor(Math.random() * 2)
   
     let random_number = Math.floor(Math.random() * 5)
     
