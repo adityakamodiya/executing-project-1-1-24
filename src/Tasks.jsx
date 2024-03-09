@@ -185,7 +185,7 @@ function Tasks() {
     setfolder(select_folder(select_random))
     setcategories(select_category(select_random) + random_number)
     
-    console.log(select_folder(select_random),select_category(select_random)+random_number);
+    // console.log(select_folder(select_random),select_category(select_random)+random_number);
   }
 
   useEffect(() => {
