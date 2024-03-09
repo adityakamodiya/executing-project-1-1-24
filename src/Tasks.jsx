@@ -181,7 +181,7 @@ function Tasks() {
     let random_number = Math.floor(Math.random() * 5)
     
     setfolder(select_folder(select_random))
-    setcategories(select_category(select_random) + random_number);
+    // setcategories(select_category(select_random) + random_number);
     
 
 
