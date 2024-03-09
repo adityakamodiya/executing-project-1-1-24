@@ -44,7 +44,7 @@ function Profile() {
      profile_alert.style.display = 'block' 
 
     {
-      // var clickimg = img
+
       setclickimg(img)
       // console.log(clickimg)
       setcloudname('adityascloud')
