@@ -1,9 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Task.css'
 import { MyWebContext } from './Main';
+import axios from 'axios';
 function Tasks() {
   const { streak, setstreak } = useContext(MyWebContext)
   const [scratchContent, setscratchContent] = useState('')
+  const [categories,setcategories]  = useState('')
+  const [folder,setfolder] = useState('')
+  const [random,setrandom] = useState('')
+
+    
 
 
   // THIS FUNCTION AUTOMATICAALY SHWOWS THE CONTENT WHICH IS INSIDE THE SCRATCH  ,AFTER A FEW SECONDS
@@ -23,7 +29,7 @@ function Tasks() {
 
       if (i === 3)
         clearInterval(interval)
-    }, 10000);
+    }, 1000);
 
   }
   automatically_show()
@@ -125,30 +131,68 @@ function Tasks() {
     // console.log('streak')
   }
   useEffect(() => {
-
+    
     ScrathcCard()
   }, [])
 
+// THIS IS THE FUNCTION WHICH GENERATE A RANDOM NUMBER    AND THE INTERVAL WILL BE UPDATED WHENVER WE INCREASE NUMBER OF FOLDERS;
+
+
+// function select_random(){
+//   let select_random = Math.floor(Math.random() * 2)
+ 
+  
+//   setrandom(select_random);
+//   // console.log(select_random)
+//   return select_random;
+//   // console.log(select_random)
+// }
+
+
+
+
+// THIS FUNCTION WILL SELECT FOLDERS
+     function select_folder(select_random){
+      let folders = ['Taskfolder1','jethalal'];
+      // console.log(folders[random]);
+      return folders[select_random];  
+      // console.log(select_random)
+      
+     }
+
+
   // THIS FUNCTION RETURN THE RANDOM CATEGORY WHICH WILL BE DISPLAYED IN SCRATCH 
-  function select_category() {
-    let Categories = ['jhonybhaiya'];
-    let select_random_category = Categories[Math.floor(Math.random() * 1)]
-    //  console.log(select_random_category)
-    return select_random_category;
-  }
+  function select_category(select_random) {
 
-  // select_category();
+    let Categories = ['jhonybhaiya','nobita'];
+    
+
+      return Categories[select_random];
+    
+    
+
+    }
+
+  
+
+
   function Call_Content() {
-    let random_number = Math.floor(Math.random() * 10)
-    setscratchContent(select_category() + random_number)
-    console.log(select_category() + random_number)
+      let select_random = Math.floor(Math.random() * 2);
 
+  
+    let random_number = Math.floor(Math.random() * 5)
+    
+    setfolder(select_folder(select_random))
+    setcategories(select_category(select_random) + random_number)
+    
+    console.log(select_folder(select_random),select_category(select_random)+random_number);
   }
 
   useEffect(() => {
-    Call_Content();
-  }, [])
 
+    Call_Content();
+    
+  }, [])
 
 
   return (
@@ -170,8 +214,8 @@ function Tasks() {
           <div class="container">
             <div class="base">
               {
-                (scratchContent)?
-                <img className='content-image' src={`https://res.cloudinary.com/adityascloud/image/upload/Taskfolder1/${scratchContent}`} alt="" />:''
+                (categories && folder)?
+                <img className='content-image' src={`https://res.cloudinary.com/adityascloud/image/upload/${folder}/${categories}`} alt="" />:''
 
               }    
                   <button onClick={(e) => { streak_continue(e) }}>run you streak </button>
