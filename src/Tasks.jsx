@@ -141,7 +141,7 @@ function Tasks() {
   function Call_Content() {
     let random_number = Math.floor(Math.random() * 10)
     setscratchContent(select_category() + random_number)
-    console.log(select_category() + random_number)
+    // console.log(select_category() + random_number)
 
   }
 
