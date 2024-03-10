@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import image from './images/sea.jpg'
 import './FrontPage.css'
+import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 import { useContext } from 'react'
 import {MyWebContext} from './Main'
@@ -9,9 +12,15 @@ import {MyWebContext} from './Main'
 
 function FrontPage() {
     const{loginvar} = useContext(MyWebContext)
-    const[counter,setcounter]= useState(1)
+    const[counter,setcounter]= useState(0)
     const[varr,setvarr]= useState(true)
-
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      };
     
     // e.preventDefault()
 
@@ -36,6 +45,8 @@ let x = localStorage.getItem('loginvar')
     })
 
     function next_slide(){
+        
+
         setcounter(counter+1)
         // let counter =0
         // console.log(counter)
@@ -55,6 +66,7 @@ function slideimage(){
         
     })
 }
+
  
  
 
@@ -84,20 +96,28 @@ function slideimage(){
 
             </div>
             <div id="slider-frame">
-                <div className="slider-box">
-                    <div className="sliders">
-                        hello
-                    </div>
-                    <div className="sliders">
-                        kya
-                    </div>
-                    <div className="sliders">
-                        haal!
-                    </div>
-                </div>
-                    
-                <button onClick={next_slide} className='next'>next </button>
-                <button onClick={previous_slide} className='previous'>previous</button>
+            <Slider {...settings}>
+      <div className='box'>
+        <h3>1</h3>
+      </div>
+      <div className='box'>
+        <h3>2</h3>
+      </div>
+      <div className='box'>
+        <h3>3</h3>
+      </div>
+      <div className='box'>
+        <h3>4</h3>
+      </div>
+      <div className='box'>
+        <h3>5</h3>
+      </div>
+      <div className='box'>
+        <h3>6</h3>
+      </div>
+      <button>left</button>
+      <button>right</button>
+    </Slider>
 
             </div>
         </>
