@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import image from './images/sea.jpg'
 import './FrontPage.css'
@@ -9,12 +9,56 @@ import {MyWebContext} from './Main'
 
 function FrontPage() {
     const{loginvar} = useContext(MyWebContext)
+    const[counter,setcounter]= useState(1)
+    const[varr,setvarr]= useState(true)
+
+    
     // e.preventDefault()
 
 localStorage.setItem('loginvar',loginvar)
 let x = localStorage.getItem('loginvar')
-    // let view = document.querySelector('#frontpage-wrapper')
-    // console.log(view)
+    
+
+    function slider_section(){
+        // setcounter(0);
+        // alert("ello")
+        let sliders = document.querySelectorAll('.sliders')
+            // var counter=0;
+            sliders.forEach((slide,index)=>{
+                slide.style.left = `${index*100}%`
+            })
+
+            
+            
+    }
+    useEffect(()=>{
+        slider_section();
+    })
+
+    function next_slide(){
+        setcounter(counter+1)
+        // let counter =0
+        // console.log(counter)
+        slideimage();
+    }
+    function previous_slide(){
+        setcounter(counter-1)
+        slideimage()
+        
+    }
+
+function slideimage(){
+    console.log(counter)
+    let sliders = document.querySelectorAll('.sliders')
+    sliders.forEach((slide,index)=>{
+        slide.style.transform = `translateX(-${counter*100}%)`
+        
+    })
+}
+ 
+ 
+
+
     return (
         <>
             <div id='frontpage-wrapper' style={{backgroundImage:'url('+image+')'}}>
@@ -27,7 +71,7 @@ let x = localStorage.getItem('loginvar')
                     <div className='nav-icons'>
                     <ul>
                        {/* <li><Link to='/tasks'>Tasks</Link></li> */}
-                       <li><Link to='/vision_and_mission'>vision and missions</Link></li>
+                       {/* <li><Link to='/vision_and_mission'>vision and missions</Link></li> */}
                        {(loginvar && x )?
                        
                        <li><Link to='/profile'>profile </Link></li>
@@ -37,6 +81,24 @@ let x = localStorage.getItem('loginvar')
                     </ul>
                     </div>
                 </div>
+
+            </div>
+            <div id="slider-frame">
+                <div className="slider-box">
+                    <div className="sliders">
+                        hello
+                    </div>
+                    <div className="sliders">
+                        kya
+                    </div>
+                    <div className="sliders">
+                        haal!
+                    </div>
+                </div>
+                    
+                <button onClick={next_slide} className='next'>next </button>
+                <button onClick={previous_slide} className='previous'>previous</button>
+
             </div>
         </>
     )

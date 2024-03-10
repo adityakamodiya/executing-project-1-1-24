@@ -219,3 +219,11 @@ function Tasks() {
 }
 
 export default Tasks
+
+
+// git status
+// git add -A
+// git config --global user.email "adityakamodiya@gmail.com"
+// git config --global user.name "Aditya Kamodiya"
+// git commit  -m"..."
+// git push -u origin main
