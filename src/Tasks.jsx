@@ -17,8 +17,8 @@ function Tasks() {
     let i = 3;
     let interval = setInterval(() => {
       let canvas = document.querySelector("#scratch");
-      canvas.style.display = 'none'
-      // alert('hello')
+      // canvas.style.display = 'none'
+
       let video = document.createElement('video')
       let source = document.createElement('source')
       let base = document.querySelector('.base')
@@ -138,15 +138,6 @@ function Tasks() {
 // THIS IS THE FUNCTION WHICH GENERATE A RANDOM NUMBER    AND THE INTERVAL WILL BE UPDATED WHENVER WE INCREASE NUMBER OF FOLDERS;
 
 
-// function select_random(){
-//   let select_random = Math.floor(Math.random() * 2)
- 
-  
-//   setrandom(select_random);
-//   // console.log(select_random)
-//   return select_random;
-//   // console.log(select_random)
-// }
 
 
 
@@ -181,9 +172,9 @@ function Tasks() {
     let random_number = Math.floor(Math.random() * 5)
     
     setfolder(select_folder(select_random))
-    setcategories(select_category(select_random) + random_number);
+    setcategories(select_category(select_random) + random_number)
     
-
+}
 
   useEffect(() => {
 

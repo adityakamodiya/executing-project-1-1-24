@@ -42,6 +42,8 @@
     font-family: "Poppins", sans-serif;
     /* display: flex; */
     /* display: flex; */
+    width: 85%;
+    height: 80%;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -66,7 +68,9 @@
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
-  }
+    height: 80%;
+    width: 85%;
+}
   #background{
     background-color: #746e7e;
     position: absolute;
