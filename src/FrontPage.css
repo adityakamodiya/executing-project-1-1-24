@@ -86,28 +86,76 @@
         justify-content: center;
         align-items: center;
     }
-    .box{
-        height: 100px;
-        width: 100px;
-        background-color: red;
+    #slide-wrapper {
+        height: 100vh;
+        background: #0000009e;
     }
-    h3{
-        color: red;
-        font-size: 20px;
-    }
-    #slider-frame .slider-box{
-        height: 200px;
-        width: 30%;
-        border: 1px solid;
-        /* display: flex; */
-        position: relative;
-        align-items: center;
+    #slide-wrapper .our-heading{
+        /* text-align: center; */
+        height: 20%;
+        padding-top: 2% 20%;
+        display: flex;
         justify-content: center;
+        align-items: center;
+
     }
-    #slider-frame .slider-box .sliders{
+    #slide-wrapper .our-heading h1{
+        line-height: 30px;
+        /* padding-top: 5%; */
+    }
+    
+    .slider-container{
         height: 100%;
-        width: 100%;
-        position: absolute;
+        /* display: flex; */
         text-align: center;
-        transition: 1s;
+        padding-top: 5%;
+        /* justify-content: center; */
+        /* align-items: center; */
+    }
+    .slide-box{
+        height: 500px;
+        /* width: 200px; */
+
+    }
+    .slide-box .review-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #00000029;
+        padding: 0% 20%;
+    }
+    .slide-box .review-content .img-div {
+        width: 110px;
+        height: 110px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        background-color: #000000ad;
+        border-radius: 50%;
+    }
+    .slide-box .review-content .img-div img{
+        width: 100px;height: 100px;
+        border-radius: 50%;
+    }
+    .slide-box .review-content p{
+        line-height: 35px;
+    }
+    .slide-box .review-content h1 {
+        margin-top: 5%;
+        border: 1px solid;
+        padding: 1px 10%;
+        border-radius: 24%;
+        background: #17161638;
+    }
+
+    .slide-box .review-content .stars{
+        margin: 3% 0;
+    }
+    .slide-box .review-content .stars{
+        margin: 3% 0;
+    } i{
+        color: yellow;
     }

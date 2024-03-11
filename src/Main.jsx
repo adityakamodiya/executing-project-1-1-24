@@ -28,7 +28,7 @@ function Main() {
       <Route path='/profile' element ={<Profile/>} />
     <Route path='/vision_and_mission' element ={<Vision_Missions/>}>
       </Route>  
-    <Route path='/tasks' element ={<Tasks/>}></Route> 
+    {/* <Route path='/' element ={<Tasks/>}></Route>  */}
     <Route path='/payment' element ={<Payment/>}></Route>  
     <Route path='/signup' element={<Sign_Up/>}></Route>
     

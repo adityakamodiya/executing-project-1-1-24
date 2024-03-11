@@ -3,77 +3,44 @@ import { Link } from 'react-router-dom'
 import image from './images/sea.jpg'
 import './FrontPage.css'
 import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import { useContext } from 'react'
-import {MyWebContext} from './Main'
+import { MyWebContext } from './Main'
 
 
 function FrontPage() {
-    const{loginvar} = useContext(MyWebContext)
-    const[counter,setcounter]= useState(0)
-    const[varr,setvarr]= useState(true)
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      };
-    
+    const { loginvar } = useContext(MyWebContext)
+    const [counter, setcounter] = useState(0)
+    const [varr, setvarr] = useState(true)
+
+
     // e.preventDefault()
 
-localStorage.setItem('loginvar',loginvar)
-let x = localStorage.getItem('loginvar')
+    localStorage.setItem('loginvar', loginvar)
+    let x = localStorage.getItem('loginvar')
+
+
     
 
-    function slider_section(){
-        // setcounter(0);
-        // alert("ello")
-        let sliders = document.querySelectorAll('.sliders')
-            // var counter=0;
-            sliders.forEach((slide,index)=>{
-                slide.style.left = `${index*100}%`
-            })
-
-            
-            
-    }
-    useEffect(()=>{
-        slider_section();
-    })
-
-    function next_slide(){
-        
-
-        setcounter(counter+1)
-        // let counter =0
-        // console.log(counter)
-        slideimage();
-    }
-    function previous_slide(){
-        setcounter(counter-1)
-        slideimage()
-        
-    }
-
-function slideimage(){
-    console.log(counter)
-    let sliders = document.querySelectorAll('.sliders')
-    sliders.forEach((slide,index)=>{
-        slide.style.transform = `translateX(-${counter*100}%)`
-        
-    })
-}
-
- 
- 
 
 
+    const settings = {
+        //   dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        accessibility: true,
+        arrows: false,
+        autoplay: true
+    };
+
+     
     return (
         <>
-            <div id='frontpage-wrapper' style={{backgroundImage:'url('+image+')'}}>
+            <div id='frontpage-wrapper' style={{ backgroundImage: 'url(' + image + ')' }}>
                 <div className='Top-Header-front'>
                     <h1>Site Logo</h1>
                     <Link to='/signup' >sign up</Link>
@@ -81,45 +48,134 @@ function slideimage(){
                 <div className='Navbar-section'>
                     <h1>Share the smiles...</h1><br /><br />
                     <div className='nav-icons'>
-                    <ul>
-                       {/* <li><Link to='/tasks'>Tasks</Link></li> */}
-                       {/* <li><Link to='/vision_and_mission'>vision and missions</Link></li> */}
-                       {(loginvar && x )?
-                       
-                       <li><Link to='/profile'>profile </Link></li>
-                       :<li><Link to='/login'>Log in</Link></li>
-                    }
-                       <li><Link to='/tasks'>icon 4</Link></li>
-                    </ul>
+                        <ul>
+                            {/* <li><Link to='/tasks'>Tasks</Link></li> */}
+                            {/* <li><Link to='/vision_and_mission'>vision and missions</Link></li> */}
+                            {(loginvar && x) ?
+
+                                <li><Link to='/profile'>profile </Link></li>
+                                : <li><Link to='/login'>Log in</Link></li>
+                            }
+                            <li><Link to='/tasks'>icon 4</Link></li>
+                        </ul>
                     </div>
                 </div>
 
             </div>
-            <div id="slider-frame">
-            <Slider {...settings}>
-      <div className='box'>
-        <h3>1</h3>
-      </div>
-      <div className='box'>
-        <h3>2</h3>
-      </div>
-      <div className='box'>
-        <h3>3</h3>
-      </div>
-      <div className='box'>
-        <h3>4</h3>
-      </div>
-      <div className='box'>
-        <h3>5</h3>
-      </div>
-      <div className='box'>
-        <h3>6</h3>
-      </div>
-      <button>left</button>
-      <button>right</button>
-    </Slider>
+            <div id="slide-wrapper">
+                <div className="our-heading">
+                <h1>We are what
+                     we are today <br /> because of our strong community</h1>
+                </div>
+                <div className="slider-container" style={{ "height": "100%" }}>
+                    <Slider {...settings}>
+                        <div className="slide-box">
+                            <div className="review-content">
+                               <div className="img-div">
+                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                </div>
+                                <div className="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
+                                <h1>Aditya</h1>
+                            </div>
+                        </div>
+                        <div className="slide-box">
+                            <div className="review-content">
+                               <div className="img-div">
+                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                </div>
+                                <div className="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
+                                <h1>Aditya</h1>
+                            </div>
+                        </div>
+                        <div className="slide-box">
+                            <div className="review-content">
+                               <div className="img-div">
+                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                </div>
+                                <div className="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
+                                <h1>Ritika</h1>
+                            </div>
+                        </div>
+                        <div className="slide-box">
+                            <div className="review-content">
+                               <div className="img-div">
+                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                </div>
+                                <div className="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
+                                <h1>Nitesh</h1>
+                            </div>
+                        </div>
+                        <div className="slide-box">
+                            <div className="review-content">
+                               <div className="img-div">
+                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                </div>
+                                <div className="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
+                                <h1>Mankabiir</h1>
+                            </div>
+                        </div>
+                        <div className="slide-box">
+                            <div className="review-content">
+                               <div className="img-div">
+                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                </div>
+                                <div className="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
+                                <h1>Utkansha</h1>
+                            </div>
+                        </div>
 
+                    </Slider>
+                </div>
             </div>
+
         </>
     )
 }
