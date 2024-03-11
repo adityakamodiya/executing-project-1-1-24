@@ -17,7 +17,7 @@ function Tasks() {
     let i = 3;
     let interval = setInterval(() => {
       let canvas = document.querySelector("#scratch");
-      // canvas.style.display = 'none'
+      canvas.style.display = 'none'
 
       let video = document.createElement('video')
       let source = document.createElement('source')
