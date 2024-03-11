@@ -5,38 +5,40 @@ import axios from 'axios';
 function Tasks() {
   const { streak, setstreak } = useContext(MyWebContext)
   const [scratchContent, setscratchContent] = useState('')
-  const [categories,setcategories]  = useState('')
-  const [folder,setfolder] = useState('')
-  const [random,setrandom] = useState('')
+  const [categories, setcategories] = useState('')
+  const [folder, setfolder] = useState('')
+  const [random, setrandom] = useState('')
 
-    
+
 
 
   // THIS FUNCTION AUTOMATICAALY SHWOWS THE CONTENT WHICH IS INSIDE THE SCRATCH  ,AFTER A FEW SECONDS
   function automatically_show() {
-    let i = 3;
+    let i = 1;
+
     let interval = setInterval(() => {
       let canvas = document.querySelector("#scratch");
       canvas.style.display = 'none'
 
-      let video = document.createElement('video')
-      let source = document.createElement('source')
-      let base = document.querySelector('.base')
-      // source.src = `https://res.cloudinary.com/adityascloud/image/upload/bullet`
 
-      video.append(source)
-      base.append(video)
-
-      if (i === 3)
+      if (i === 1) {
+        let content = document.querySelector('.base')
+        let streak_button = document.querySelector('.streak-button')
+        content.style.width = '130%'
+        content.style.height = '110%'
+        content.style.borderRadius = '20px 20px 20px 20px'
+        streak_button.style.left = '35%'
+        streak_button.style.transform = 'rotate(360deg)'
         clearInterval(interval)
-    }, 1000);
+      }
+    }, 2000);
 
   }
   automatically_show()
   //  THIS IS THE FUNCTION WHICH MAINTAINS STREAKS OF USER
   function streak_continue(e) {
     e.preventDefault()
-    console.log(e.target)
+    // console.log(e.target)
     e.target.disabled = true
     setstreak(true)
     // console.log(streak)  
@@ -131,55 +133,55 @@ function Tasks() {
     // console.log('streak')
   }
   useEffect(() => {
-    
+
     ScrathcCard()
   }, [])
 
-// THIS IS THE FUNCTION WHICH GENERATE A RANDOM NUMBER    AND THE INTERVAL WILL BE UPDATED WHENVER WE INCREASE NUMBER OF FOLDERS;
+  // THIS IS THE FUNCTION WHICH GENERATE A RANDOM NUMBER    AND THE INTERVAL WILL BE UPDATED WHENVER WE INCREASE NUMBER OF FOLDERS;
 
 
 
 
 
 
-// THIS FUNCTION WILL SELECT FOLDERS
-     function select_folder(select_random){
-      let folders = ['Taskfolder1','jethalal','tomAndjerry'];
-      // console.log(folders[random]);
-      return folders[select_random];  
-      // console.log(select_random)
-      
-     }
+  // THIS FUNCTION WILL SELECT FOLDERS
+  function select_folder(select_random) {
+    let folders = ['Taskfolder1', 'jethalal', 'tomAndjerry'];
+    // console.log(folders[random]);
+    return folders[select_random];
+    // console.log(select_random)
+
+  }
 
 
   // THIS FUNCTION RETURN THE RANDOM CATEGORY WHICH WILL BE DISPLAYED IN SCRATCH 
   function select_category(select_random) {
 
-    let Categories = ['jhonybhaiya','nobita','tomAndjerry'];
-    
+    let Categories = ['jhonybhaiya', 'nobita', 'tomAndjerry'];
 
-      return Categories[select_random];
-    
-    
 
-    }
+    return Categories[select_random];
 
-  
+
+
+  }
+
+
 
   function Call_Content() {
-  let select_random = Math.floor(Math.random() * 3)
-  
+    let select_random = Math.floor(Math.random() * 3)
+
     let random_number = Math.floor(Math.random() * 5)
-    
+
     setfolder(select_folder(select_random))
     setcategories(select_category(select_random) + random_number)
-    
-}
+
+  }
 
   useEffect(() => {
 
     Call_Content();
-    
+
   }, [])
 
 
@@ -202,11 +204,11 @@ function Tasks() {
           <div class="container">
             <div class="base">
               {
-                (categories && folder)?
-                <img className='content-image' src={`https://res.cloudinary.com/adityascloud/image/upload/${folder}/${categories}`} alt="" />:''
+                (categories && folder) ?
+                  <img className='content-image' src={`https://res.cloudinary.com/adityascloud/image/upload/${folder}/${categories}`} alt="" /> : ''
 
-              }    
-                  <button onClick={(e) => { streak_continue(e) }}>run you streak </button>
+              }
+              <button className='streak-button' onClick={(e) => { streak_continue(e) }}>run you streak </button>
             </div>
             <canvas id="scratch" width="200" height="200"></canvas>
           </div>

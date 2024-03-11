@@ -22,7 +22,7 @@ function FrontPage() {
     let x = localStorage.getItem('loginvar')
 
 
-    
+
 
 
 
@@ -34,10 +34,10 @@ function FrontPage() {
         slidesToScroll: 1,
         accessibility: true,
         arrows: false,
-        autoplay: true
+        autoplay: true,
     };
 
-     
+
     return (
         <>
             <div id='frontpage-wrapper' style={{ backgroundImage: 'url(' + image + ')' }}>
@@ -64,15 +64,15 @@ function FrontPage() {
             </div>
             <div id="slide-wrapper">
                 <div className="our-heading">
-                <h1>We are what
-                     we are today <br /> because of our strong community</h1>
+                    <h1>We are what
+                        we are today <br /> because of our strong community</h1>
                 </div>
                 <div className="slider-container" style={{ "height": "100%" }}>
                     <Slider {...settings}>
                         <div className="slide-box">
                             <div className="review-content">
-                               <div className="img-div">
-                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                <div className="img-div">
+                                    <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
                                 </div>
                                 <div className="stars">
                                     <i class="fa-solid fa-star"></i>
@@ -81,15 +81,33 @@ function FrontPage() {
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
+                                <h1>Aditya</h1>
+
+                            </div>
+                        </div>
+                        <div className="slide-box">
+                            <div className="review-content">
+                                <div className="img-div">
+                                    <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                </div>
+                                <div className="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
                                 <h1>Aditya</h1>
                             </div>
                         </div>
                         <div className="slide-box">
                             <div className="review-content">
-                               <div className="img-div">
-                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                <div className="img-div">
+                                    <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
                                 </div>
                                 <div className="stars">
                                     <i class="fa-solid fa-star"></i>
@@ -98,32 +116,15 @@ function FrontPage() {
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
-                                <h1>Aditya</h1>
-                            </div>
-                        </div>
-                        <div className="slide-box">
-                            <div className="review-content">
-                               <div className="img-div">
-                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
-                                </div>
-                                <div className="stars">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
                                 <h1>Ritika</h1>
                             </div>
                         </div>
                         <div className="slide-box">
                             <div className="review-content">
-                               <div className="img-div">
-                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                <div className="img-div">
+                                    <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
                                 </div>
                                 <div className="stars">
                                     <i class="fa-solid fa-star"></i>
@@ -132,15 +133,15 @@ function FrontPage() {
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
                                 <h1>Nitesh</h1>
                             </div>
                         </div>
                         <div className="slide-box">
                             <div className="review-content">
-                               <div className="img-div">
-                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                <div className="img-div">
+                                    <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
                                 </div>
                                 <div className="stars">
                                     <i class="fa-solid fa-star"></i>
@@ -149,15 +150,15 @@ function FrontPage() {
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
                                 <h1>Mankabiir</h1>
                             </div>
                         </div>
                         <div className="slide-box">
                             <div className="review-content">
-                               <div className="img-div">
-                                <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
+                                <div className="img-div">
+                                    <img src="https://res.cloudinary.com/adityascloud/image/upload/img1" alt="" />
                                 </div>
                                 <div className="stars">
                                     <i class="fa-solid fa-star"></i>
@@ -166,7 +167,7 @@ function FrontPage() {
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi 
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti libero tempore laboriosam nobis culpa at nisi, molestias vitae neque ipsum debitis illo, consequuntur velit nulla sit! Illo laudantium quasi
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, voluptatibus?repellat.</p>
                                 <h1>Utkansha</h1>
                             </div>
