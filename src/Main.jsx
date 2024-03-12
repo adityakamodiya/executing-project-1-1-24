@@ -31,6 +31,7 @@ function Main() {
             <Route path='/tasks' element ={<Tasks/>}></Route> 
             <Route path='/payment' element={<Payment />}></Route>
             <Route path='/signup' element={<Sign_Up />}></Route>
+            <Route path='/home' element={<FrontPage />}></Route>
 
           </Routes>
         </BrowserRouter>

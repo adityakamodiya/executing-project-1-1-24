@@ -5,6 +5,7 @@ import './FrontPage.css'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import last from './images/lastsec.webp'
 
 import { useContext } from 'react'
 import { MyWebContext } from './Main'
@@ -174,6 +175,30 @@ function FrontPage() {
                         </div>
 
                     </Slider>
+                </div>
+            </div>
+            <div id="our-social-platforms" style={{backgroundImage: 'url(' + last + ')'}}>
+                <div className="first-heading"><p>you look nice when you smile (now that you're smiling, how about trying out this site?)</p></div>
+                <div className="second-head"><h3>come be a part of our <br />duniya</h3></div>
+                <div className="main-title"><h1>our  main title</h1></div>
+                <div className="icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                
+                
+                </div>
+                <div className="other-sections">
+                    <div className="section">
+                    <a href="/">home</a>
+                    <a href="">contact</a>
+                    <a href="">terms and conditions</a>
+                </div></div>
+                <div className="copyright">
+                    
+                <p>copyright@2024.ALL Rights Reserved By <span>Aditya's Site PVT. LTD. |</span> CIN:0012003004</p>
                 </div>
             </div>
 

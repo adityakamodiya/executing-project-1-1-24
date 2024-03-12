@@ -156,6 +156,96 @@
     }
     .slide-box .review-content .stars{
         margin: 3% 0;
-    } i{
+    } 
+    .slide-box .review-content .stars i{
         color: yellow;
+    }
+
+
+    /* THIS IS OUR LAST SECTION CSS  */
+    
+    #our-social-platforms{
+        height: 100vh;
+        border: 1px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .first-heading{
+        padding: 0 24%;
+    }
+    .first-heading p{
+        font-size: 19px;
+        font-weight: 600;
+        color: wheat;
+        
+    }
+    .second-head{
+        height: 20%;
+    }
+    .second-head h3 {
+        font-size: 40px;
+        padding: 5% 0;
+        color: wheat;
+    }
+
+    .main-title{
+        height: 30%;
+        font-stretch: expanded;
+        
+    }
+    .main-title h1{
+        font-size: 110px;
+        color: wheat;
+    }
+    .icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 20%;
+        width: 100%;
+        padding: 0% 24%;
+        font-size: 26px;
+        color: wheat;
+    }
+    .other-sections {
+        /* border-bottom: 1px solid; */
+        padding: 0% 13%;
+        height: 10%;
+        /* display: flex; */
+        /* justify-content: space-between; */
+        width: 100%;
+        /* align-items: center; */
+    }
+    .other-sections .section {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-size: 22px;
+        text-decoration: none;
+        justify-content: space-between;
+        border-bottom: 2px solid;
+        border-color: #5e5e05fc;
+    }
+    
+    .other-sections .section a{
+        text-decoration: none;
+        border-right: 2px solid;
+        padding-right: 1%;
+        color: wheat;
+    }
+    .copyright{
+        padding-top: 2%;
+        font-size: 27px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .copyright p{
+        color: wheat;
+    }
+    .copyright p span{
+        color: #5e5e05fc;
     }
