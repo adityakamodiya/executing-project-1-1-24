@@ -1,16 +1,31 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Task.css'
 import { MyWebContext } from './Main';
+import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 function Tasks() {
-  const { streak, setstreak } = useContext(MyWebContext)
+  let navigate = useNavigate()
+  const { profileData,streak, setstreak } = useContext(MyWebContext)
   const [scratchContent, setscratchContent] = useState('')
   const [categories, setcategories] = useState('')
   const [folder, setfolder] = useState('')
   const [random, setrandom] = useState('')
 
+  // console.log(streak)
+
+  function direct_TASK_alert() {
+    if (!profileData) {
+      let task_wrapper = document.querySelector('#wrapper')
+      task_wrapper.style.display = 'none'
+      alert('you are redirected to log in')
+      navigate('/')
 
 
+    }
+  }
+  useEffect(() => {
+    direct_TASK_alert()
+  }, [])
 
   // THIS FUNCTION AUTOMATICAALY SHWOWS THE CONTENT WHICH IS INSIDE THE SCRATCH  ,AFTER A FEW SECONDS
   function automatically_show() {
@@ -38,11 +53,20 @@ function Tasks() {
   //  THIS IS THE FUNCTION WHICH MAINTAINS STREAKS OF USER
   function streak_continue(e) {
     e.preventDefault()
+    // setstreak(streak+1);
     // console.log(e.target)
-    e.target.disabled = true
-    setstreak(true)
-    // console.log(streak)  
+    axios.post('http://localhost:8001/increasetreak',{
+  profileData,streak
+})
+.then((res)=>{
+  console.log(res)
+})
+e.target.disabled = true
+
+      // console.log(profileData,streak)  /
+
   }
+
 
   // THIS IS SCRATCH CARD FUNCTION WHICH IS SHOWING SCRATCH
   function ScrathcCard() {

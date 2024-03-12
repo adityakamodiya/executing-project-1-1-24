@@ -10,23 +10,45 @@ import { useNavigate } from 'react-router-dom';
 
 function Profile() {
   const navigate = useNavigate()
-  const { loginvar, profileData, streak } = useContext(MyWebContext)
+  const { loginvar, profileData, streak, setstreak } = useContext(MyWebContext)
   const [imagePath, setImagePath] = useState(false)
   const [cloudName, setcloudname] = useState('')
   const [imagePublicId, setid] = useState('')
   const [defaultProfile, setdefaultProfile] = useState(profile)
   const [clickimg, setclickimg] = useState('')
+  const [defaultstreak, setdefaultstreak] = useState(true)
+
   const [pp, setpp] = useState(true)
-  // console.log(streak)
+
+  // THIS FUNCTION GET   THE ALL  USERNAMES STREAK 
+  function Call_streak() {
+    axios.get('http://localhost:8001/callstreak')
+      .then((res) => {
+
+        console.log(res)
+        if (profileData) {
+          res.data.forEach(element => {
+            if (profileData == element.profileData) {
+              setstreak(element.incrstreak)
+              setdefaultstreak(false)
+            }
+          });
+
+        }
+      })
+  }
+  useEffect(() => {
+    Call_streak()
+  }, [])
 
   useEffect(() => {
     axios.get('http://localhost:8001/WholeProfiles')
       .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
         if (profileData) {
           res.data.forEach(element => {
             if (profileData == element.profileData) {
-              console.log(profileData, element.clickimg)
+              // console.log(profileData, element.clickimg)
               setid(element.clickimg)
               setcloudname('adityascloud')
               setpp(false)
@@ -36,7 +58,10 @@ function Profile() {
           });
         }
       })
+
   }, [])
+
+
 
   function direct_login_alert() {
     if (!profileData) {
@@ -96,9 +121,6 @@ function Profile() {
   return (
 
     <>
-
-
-
       <div id="profile-wrapper">
         <div id="profile-change-alert" style={{ 'display': 'none' }} >
           <p>do you want to change your profile</p>
@@ -113,8 +135,12 @@ function Profile() {
               <img className='laya' src={`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`} alt="" />
             }</div>
           <h1>{'hey...' + profileData}</h1>
-          <h4>streak=:</h4>
-          <Link to='/payment'>Tasks</Link>
+          {
+            (defaultstreak) ?
+              <h4>streak=:0</h4> :
+              <h4>streak=:{streak}</h4>
+          }
+          <Link to='/tasks'>Tasks</Link>
 
         </div>
         <div id="profile-boxes">
