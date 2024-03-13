@@ -3,6 +3,10 @@ import { MyWebContext } from './Main'
 import { Link } from 'react-router-dom'
 import './Profile.css'
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 // import im from '../../back/UploadprofileImages'
 import profile from './images/oggy.jpg'
 import axios from 'axios'
@@ -63,15 +67,19 @@ function Profile() {
 
 
 
+
+
+// iss func ko uncomment v krnaa h 
+
   function direct_login_alert() {
-    if (!profileData) {
-      let profile_wrapper = document.querySelector('#profile-wrapper')
-      profile_wrapper.style.display = 'none'
-      alert('you are redirected to log in')
-      navigate('/')
+    // if (!profileData) {
+    //   let profile_wrapper = document.querySelector('#profile-wrapper')
+    //   profile_wrapper.style.display = 'none'
+    //   alert('you are redirected to log in')
+    //   navigate('/')
 
 
-    }
+    // }
   }
   useEffect(() => {
     direct_login_alert()
@@ -117,6 +125,17 @@ function Profile() {
         console.log(response);
       });
   }
+  
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay:true,
+    autoplayspeed:500,
+    
+    rtl:true
+  };
 
   return (
 
@@ -156,8 +175,31 @@ function Profile() {
 
       </div>
 
+      <div className="slider-container">
+      <Slider {...settings}>
+        <div className='ad' >
+          <h3>1</h3>
+        </div>
+        <div className='ad' >
+          <h3>2</h3>
+        </div>
+        <div className='ad' >
+          <h3>3</h3>
+        </div>
+        <div className='ad' >
+          <h3>4</h3>
+        </div>
+        <div className='ad' >
+          <h3>5</h3>
+        </div>
+        <div className='ad' >
+          <h3>6</h3>
+        </div>
+      </Slider>
+    </div>
+
     </>
   )
-}
 
+}
 export default Profile

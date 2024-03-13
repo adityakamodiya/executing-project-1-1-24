@@ -21,7 +21,8 @@
     align-items: start;
     padding: 0 1%;
     flex-direction: column;
-    height: 23%;
+    height: 30%;
+    border: 1px solid;
     display: flex;
 }
 .picture {
@@ -41,7 +42,9 @@
     width: 100%;
     border-radius: 50%;
 }
-
+.ad{
+    border: 1px solid;
+}
 
 #profile-boxes {
     width: 100%;
