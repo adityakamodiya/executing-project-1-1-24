@@ -26,6 +26,17 @@ function Profile() {
 
   // THIS FUNCTION GET   THE ALL  USERNAMES STREAK 
   function Call_streak() {
+
+    let task = document.querySelector('.task')
+    task.style.transform = 'rotate(360deg)'
+    task.style.top = '85%'
+    task.style.left = '45%'
+    let streak = document.querySelector('.streak')
+    streak.style.transform = 'rotate(360deg)'
+    streak.style.left = '46.5%'
+
+
+
     axios.get('http://localhost:8001/callstreak')
       .then((res) => {
 
@@ -69,17 +80,17 @@ function Profile() {
 
 
 
-// iss func ko uncomment v krnaa h 
+  // iss func ko uncomment v krnaa h 
 
   function direct_login_alert() {
-    // if (!profileData) {
-    //   let profile_wrapper = document.querySelector('#profile-wrapper')
-    //   profile_wrapper.style.display = 'none'
-    //   alert('you are redirected to log in')
-    //   navigate('/')
+    if (!profileData) {
+      let profile_wrapper = document.querySelector('#profile-wrapper')
+      profile_wrapper.style.display = 'none'
+      alert('you are redirected to log in')
+      navigate('/')
 
 
-    // }
+    }
   }
   useEffect(() => {
     direct_login_alert()
@@ -94,16 +105,12 @@ function Profile() {
     {
 
       setclickimg(img)
-      // console.log(clickimg)
+      console.log(clickimg)
       setcloudname('adityascloud')
       setid(img)
-      setdefaultProfile(`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`)
+      setdefaultProfile(`https://res.cloudinary.com/${cloudName}/image/upload/profiles/${imagePublicId}`)
       // console.log(defaultProfile)
       setImagePath(true)
-
-
-
-
 
     };
 
@@ -125,16 +132,34 @@ function Profile() {
         console.log(response);
       });
   }
-  
-  const settings = {
-    dots: true,
+
+  const FIRST = {
+    // dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
-    autoplay:true,
-    autoplayspeed:500,
-    
-    rtl:true
+    autoplay: true,
+    autoplayspeed: 500,
+    rtl: true
+  };
+  const SECOND = {
+    // dots: true,
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplayspeed: 500,
+
+    rtl: false
+  };
+  const THIRD = {
+    // dots: true,
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplayspeed: 500,
+    rtl: true
   };
 
   return (
@@ -151,52 +176,121 @@ function Profile() {
           <div className="picture"  >
             {(defaultProfile == profile && pp) ?
               <img src={defaultProfile} alt="" /> :
-              <img className='laya' src={`https://res.cloudinary.com/${cloudName}/image/upload/${imagePublicId}`} alt="" />
+              <img className='laya' src={`https://res.cloudinary.com/${cloudName}/image/upload/profiles/${imagePublicId}`} alt="" />
             }</div>
-          <h1>{'hey...' + profileData}</h1>
+          <h1 className='username'>{'hey...' + profileData}</h1>
           {
             (defaultstreak) ?
-              <h4>streak=:0</h4> :
-              <h4>streak=:{streak}</h4>
+              <h4 className='streak'><span>streak</span>=:0</h4> :
+              <h4 className='streak'><span>streak</span>=:{streak}</h4>
           }
-          <Link to='/tasks'>Tasks</Link>
+          <Link className='task' to='/tasks'>Tasks</Link>
 
         </div>
-        <div id="profile-boxes">
 
-          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img1`} alt="" onClick={(e) => { getimg(e, 'img1') }} /></div>
-          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img2`} alt="" onClick={(e) => { getimg(e, 'img2') }} /></div>
-          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img3`} alt="" onClick={(e) => { getimg(e, 'img3') }} /></div>
-          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img4`} alt="" onClick={(e) => { getimg(e, 'img4') }} /></div>
-          <div className="profile-box"><img src={`https://res.cloudinary.com/adityascloud/image/upload/img5`} alt="" onClick={(e) => { getimg(e, 'img5') }} /></div>
+        <div className="slider-container">
+          <Slider {...FIRST}>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile1`} alt="" onClick={(e) => { getimg(e, 'profile1') }} />              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile2`} alt="" onClick={(e) => { getimg(e, 'profile2') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile3`} alt="" onClick={(e) => { getimg(e, 'profile3') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile4`} alt="" onClick={(e) => { getimg(e, 'profile4') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile5`} alt="" onClick={(e) => { getimg(e, 'profile5') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile6`} alt="" onClick={(e) => { getimg(e, 'profile6') }} /> 
+              </div>
+            </div>
+
+          </Slider>
+          <Slider {...SECOND}>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile7`} alt="" onClick={(e) => { getimg(e, 'profile7') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile8`} alt="" onClick={(e) => { getimg(e, 'profile8') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile9`} alt="" onClick={(e) => { getimg(e, 'profile9') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile10`} alt="" onClick={(e) => { getimg(e, 'profile10') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile11`} alt="" onClick={(e) => { getimg(e, 'profile11') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile12`} alt="" onClick={(e) => { getimg(e, 'profile12') }} /> 
+              </div>
+            </div>
+
+          </Slider>
+          <Slider {...THIRD}>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile13`} alt="" onClick={(e) => { getimg(e, 'profile13') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile14`} alt="" onClick={(e) => { getimg(e, 'profile14') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile15`} alt="" onClick={(e) => { getimg(e, 'profile15') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile16`} alt="" onClick={(e) => { getimg(e, 'profile16') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile17`} alt="" onClick={(e) => { getimg(e, 'profile17') }} /> 
+              </div>
+            </div>
+            <div className="slider-div">
+              <div className="image-div">
+              <img src={`https://res.cloudinary.com/adityascloud/image/upload/profiles/profile18`} alt="" onClick={(e) => { getimg(e, 'profile18') }} /> 
+              </div>
+            </div>
+          </Slider>
         </div>
-
-
-
       </div>
 
-      <div className="slider-container">
-      <Slider {...settings}>
-        <div className='ad' >
-          <h3>1</h3>
-        </div>
-        <div className='ad' >
-          <h3>2</h3>
-        </div>
-        <div className='ad' >
-          <h3>3</h3>
-        </div>
-        <div className='ad' >
-          <h3>4</h3>
-        </div>
-        <div className='ad' >
-          <h3>5</h3>
-        </div>
-        <div className='ad' >
-          <h3>6</h3>
-        </div>
-      </Slider>
-    </div>
+
+
 
     </>
   )

@@ -5,32 +5,47 @@
 }
 #profile-wrapper{
     height: 100vh;
-    background-color: gray;
+    /* background-color: gray; */
     position: relative;
-  
+  background-color: black;
     /* display; */
 }
 
-#profile-change-alert{
+#profile-change-alert {
+    /* position: relative; */
     position: absolute;
-    left: 10%;
-    top: 10%;
+    left: 63%;
+    top: 38%;
+    color: wheat;
+}
+#profile-change-alert button{
+    padding: 10px;
+    transition: 1s;
+    /* position: absolute; */
+    /* left: 30%; */
+    /* top: 50%; */
+}
+#profile-change-alert button:hover{
+    background-color: yellow;
 }
 .profile-pic-username {
     justify-content: center;
     align-items: start;
     padding: 0 1%;
     flex-direction: column;
-    height: 30%;
-    border: 1px solid;
+    height: 40%;
+    /* border: 1px solid; */
     display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
 }
 .picture {
     height: 100PX;
     width: 100PX;
     /* border: 1px solid; */
     text-align: center;
-    border: 1 px solid;
+    /* border: 1 px solid; */
     /* border-radius: 50%; */
     border-radius: 50%;
     background-position: center;
@@ -42,8 +57,44 @@
     width: 100%;
     border-radius: 50%;
 }
-.ad{
-    border: 1px solid;
+.profile-pic-username .username{
+    font-size: 35px;
+    color: aqua;
+}
+
+.streak {
+    font-size: 20px;
+    color: darkslategrey;
+    position: absolute;
+    top: 74%;
+    left: -8%;
+    transition: 3s;
+}
+
+.task {
+    position: absolute;
+    border-radius: 7%;
+    font-size: 22px;
+    top: 85%;
+    left: 100%;
+    /* border: 1px solid; */
+    padding: 2px 42px;
+    text-decoration: none;
+    transition: 3s;
+    animation: task;
+    animation-duration: 3s;
+    animation-fill-mode: backwards;
+    animation-iteration-count: infinite;
+    
+}
+
+@keyframes task {
+    from{
+        background-color: blue;
+    }
+    to{
+        background-color: yellow;
+    }
 }
 
 #profile-boxes {
@@ -59,7 +110,7 @@
     width: 180px;
     height: 100%;
     margin: 0 15px;
-    border: 1px solid;
+    /* border: 1px solid; */
     border-radius: 50%;
     box-sizing: border-box;
     /* background: #3b3b3b; */
@@ -75,6 +126,32 @@
 .laya {
     height: 100px ;
     width: 100px;
-    border: 1px solid;
+    /* border: 1px solid; */
 
 }
+.slider-container{
+    height: 70%;
+    /* border: 1px solid; */
+}
+.slider-div{
+    /* border: 1px solid; */
+    /* position: absolute; */
+    height: 100px ;
+
+    /* top: 50%; */
+}
+
+.image-div{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.slider-div .image-div img{
+    height: 80px ;
+    width: 80px;
+    border-radius: 50%;
+}
+
