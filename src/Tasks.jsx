@@ -11,7 +11,7 @@ function Tasks() {
   const [folder, setfolder] = useState('')
   const [random, setrandom] = useState('')
 
-  // console.log(streak)
+  console.log(streak)
 
   function direct_TASK_alert() {
     if (!profileData) {

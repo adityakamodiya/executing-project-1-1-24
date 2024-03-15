@@ -21,6 +21,7 @@ function Profile() {
   const [defaultProfile, setdefaultProfile] = useState(profile)
   const [clickimg, setclickimg] = useState('')
   const [defaultstreak, setdefaultstreak] = useState(true)
+  // const[temp,settemp] = useState('')
 
   const [pp, setpp] = useState(true)
 
@@ -31,9 +32,9 @@ function Profile() {
     task.style.transform = 'rotate(360deg)'
     task.style.top = '85%'
     task.style.left = '45%'
-    let streak = document.querySelector('.streak')
-    streak.style.transform = 'rotate(360deg)'
-    streak.style.left = '46.5%'
+    let streaks = document.querySelector('.streak')
+    streaks.style.transform = 'rotate(360deg)'
+    streaks.style.left = '46.5%'
 
 
 
@@ -41,15 +42,29 @@ function Profile() {
       .then((res) => {
 
         console.log(res)
-        if (profileData) {
+        if (res.data!=0 &&  profileData) {
           res.data.forEach(element => {
             if (profileData == element.profileData) {
-              setstreak(element.incrstreak)
+              setstreak(element.incrstreak);
+              console.log(element.incrstreak,streak)
               setdefaultstreak(false)
             }
+            
           });
 
+        
+          // if(defaultstreak==true){
+          //   console.log('chlll ja yr')
+          //   setstreak(0);
+          //   // setdefaultstreak(false)
+          // }
         }
+        else {
+          console.log('ni aaya')
+          setstreak(0);
+        }
+        
+        
       })
   }
   useEffect(() => {
@@ -67,7 +82,7 @@ function Profile() {
               setid(element.clickimg)
               setcloudname('adityascloud')
               setpp(false)
-              console.log(imagePublicId)
+              // console.log(imagePublicId)
             }
 
           });
@@ -99,6 +114,7 @@ function Profile() {
 
 
   function getimg(e, img) {
+    console.log(streak)
     let profile_alert = document.querySelector('#profile-change-alert')
     profile_alert.style.display = 'block'
 
@@ -123,6 +139,7 @@ function Profile() {
     console.log(clickimg)
 
     let profile_alert = document.querySelector('#profile-change-alert')
+    if(y=='yes'){
     profile_alert.style.display = 'none'
     alert("profile is changed")
     axios.post("http://localhost:8001/Myprofile", {
@@ -131,6 +148,11 @@ function Profile() {
       .then((response) => {
         console.log(response);
       });
+
+    }
+  else {
+    profile_alert.style.display = 'none'
+  }
   }
 
   const FIRST = {
@@ -169,7 +191,7 @@ function Profile() {
         <div id="profile-change-alert" style={{ 'display': 'none' }} >
           <p>do you want to change your profile</p>
           <button onClick={(e) => changeProfile(e, 'yes')}>yes</button>
-          <button>no</button>
+          <button onClick={(e) => changeProfile(e, 'No')}>No</button>
         </div>
 
         <div className="profile-pic-username">
@@ -181,8 +203,8 @@ function Profile() {
           <h1 className='username'>{'hey...' + profileData}</h1>
           {
             (defaultstreak) ?
-              <h4 className='streak'><span>streak</span>=:0</h4> :
-              <h4 className='streak'><span>streak</span>=:{streak}</h4>
+            <h4 className='streak'><span>streak</span>=:0</h4>:
+            <h4 className='streak'><span>streak</span>=:{streak}</h4>
           }
           <Link className='task' to='/tasks'>Tasks</Link>
 
