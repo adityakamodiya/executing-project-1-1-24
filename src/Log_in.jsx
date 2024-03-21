@@ -21,7 +21,7 @@ function Log_in() {
   function log_in_user(e, name) {
     // console.log(d)           
     e.preventDefault()
-    // console.log("hello")
+    console.log("hello")
     // http://localhost:8001/login
 
 
