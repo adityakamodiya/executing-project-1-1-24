@@ -224,6 +224,7 @@ function Profile() {
           <button onClick={()=>{
             localStorage.removeItem('token')
             localStorage.removeItem('username')
+            window.location.reload()
           }}>log out</button>
 
         </div>
