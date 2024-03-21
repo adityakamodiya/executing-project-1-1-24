@@ -17,6 +17,7 @@ function Log_in() {
   let navigate = useNavigate()
 
   axios.defaults.withCredentials = true
+
   function log_in_user(e, name) {
     // console.log(d)           
     e.preventDefault()
@@ -29,11 +30,18 @@ function Log_in() {
     })
       .then((res) => {
         console.log(res)
+        // console.log(isLoggedIn)
+        // res.data == 'login successfull'
         if (res.data == 'login successfull') {
+          // const isLoggedIn  = sessionStorage.setItem('isLoggedIn',true)
           setprofileData(username)
           setloginvar(true)
+          let rand = Math.random()*1000
+          localStorage.setItem('token',rand)
+          localStorage.setItem('username',username)
           navigate('/profile')
         }
+
         else
           alert(res.data + ' please check username or your password')
       })

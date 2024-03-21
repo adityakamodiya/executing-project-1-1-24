@@ -12,7 +12,7 @@ function Tasks() {
   const [random, setrandom] = useState('')
 
   console.log(streak)
-
+// iss func ko uncomment krna h 
   function direct_TASK_alert() {
     if (!profileData) {
       let task_wrapper = document.querySelector('#wrapper')
@@ -26,6 +26,52 @@ function Tasks() {
   useEffect(() => {
     direct_TASK_alert()
   }, [])
+
+
+  function Call_Content() {
+    // this is for folders "how many folders are there"
+    let select_random = Math.floor(Math.random() * 2)
+
+    // this is for number of content  present in category
+
+    let random_number = Math.floor(Math.random() * 5)
+
+    setfolder(select_folder(select_random)) 
+    setcategories(select_category(select_random) + random_number)
+    
+  }
+
+  useEffect(() => {
+
+    Call_Content();
+
+  }, [])
+
+
+  // THIS FUNCTION WILL SELECT FOLDERS
+  function select_folder(select_random) {
+    let folders = ['Taskfolder1', 'tomAndjerry'];
+    // console.log(folders[random]);
+    return folders[select_random];
+    // console.log(select_random)
+
+  }
+
+
+  // THIS FUNCTION RETURN THE RANDOM CATEGORY WHICH WILL BE DISPLAYED IN SCRATCH 
+  function select_category(select_random) {
+
+    let Categories = ['jhonybhaiya', 'tomAndjerry'];
+
+
+    return Categories[select_random];
+
+
+
+  }
+
+
+
 
   // THIS FUNCTION AUTOMATICAALY SHWOWS THE CONTENT WHICH IS INSIDE THE SCRATCH  ,AFTER A FEW SECONDS
   function automatically_show() {
@@ -54,9 +100,9 @@ function Tasks() {
   function streak_continue(e) {
     e.preventDefault()
     // setstreak(streak+1);
-    // console.log(e.target)
+    console.log(folder,categories)
     axios.post('http://localhost:8001/increasetreak',{
-  profileData,streak
+  profileData,streak,folder,categories
 })
 .then((res)=>{
   console.log(res)
@@ -163,50 +209,6 @@ e.target.disabled = true
 
   // THIS IS THE FUNCTION WHICH GENERATE A RANDOM NUMBER    AND THE INTERVAL WILL BE UPDATED WHENVER WE INCREASE NUMBER OF FOLDERS;
 
-
-
-
-
-
-  // THIS FUNCTION WILL SELECT FOLDERS
-  function select_folder(select_random) {
-    let folders = ['Taskfolder1', 'jethalal', 'tomAndjerry'];
-    // console.log(folders[random]);
-    return folders[select_random];
-    // console.log(select_random)
-
-  }
-
-
-  // THIS FUNCTION RETURN THE RANDOM CATEGORY WHICH WILL BE DISPLAYED IN SCRATCH 
-  function select_category(select_random) {
-
-    let Categories = ['jhonybhaiya', 'nobita', 'tomAndjerry'];
-
-
-    return Categories[select_random];
-
-
-
-  }
-
-
-
-  function Call_Content() {
-    let select_random = Math.floor(Math.random() * 3)
-
-    let random_number = Math.floor(Math.random() * 5)
-
-    setfolder(select_folder(select_random))
-    setcategories(select_category(select_random) + random_number)
-
-  }
-
-  useEffect(() => {
-
-    Call_Content();
-
-  }, [])
 
 
   return (

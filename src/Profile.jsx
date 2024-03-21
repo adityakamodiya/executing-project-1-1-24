@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Profile() {
   const navigate = useNavigate()
-  const { loginvar, profileData, streak, setstreak } = useContext(MyWebContext)
+  const { loginvar, profileData,setprofileData, streak, setstreak } = useContext(MyWebContext)
   const [imagePath, setImagePath] = useState(false)
   const [cloudName, setcloudname] = useState('')
   const [imagePublicId, setid] = useState('')
@@ -25,39 +25,40 @@ function Profile() {
 
   const [pp, setpp] = useState(true)
 
+  useEffect(()=>{
+   
+  },[])
+// const isLoggedIn = sessionStorage.getItem('isLoggedIn')
   // THIS FUNCTION GET   THE ALL  USERNAMES STREAK 
   function Call_streak() {
-
+    
     let task = document.querySelector('.task')
+    // task.style.display = 'none' 
     task.style.transform = 'rotate(360deg)'
     task.style.top = '85%'
     task.style.left = '45%'
     let streaks = document.querySelector('.streak')
     streaks.style.transform = 'rotate(360deg)'
     streaks.style.left = '46.5%'
-
-
+    
+    
 
     axios.get('http://localhost:8001/callstreak')
       .then((res) => {
 
-        console.log(res)
-        if (res.data!=0 &&  profileData) {
+        console.log(res.data)
+        if (res.data!=0 &&  localStorage.getItem('username')) {
           res.data.forEach(element => {
-            if (profileData == element.profileData) {
+            if (localStorage.getItem('username') == element.profileData) {
               setstreak(element.incrstreak);
-              console.log(element.incrstreak,streak)
+              // console.log(element.incrstreak,streak)
+              // console.log(element.folderarray,element.categoryarray)
               setdefaultstreak(false)
-            }
+           }
             
           });
 
         
-          // if(defaultstreak==true){
-          //   console.log('chlll ja yr')
-          //   setstreak(0);
-          //   // setdefaultstreak(false)
-          // }
         }
         else {
           console.log('ni aaya')
@@ -68,26 +69,39 @@ function Profile() {
       })
   }
   useEffect(() => {
+    
     Call_streak()
   }, [])
 
+  
   useEffect(() => {
-    axios.get('http://localhost:8001/WholeProfiles')
-      .then((res) => {
-        // console.log(res.data)
-        if (profileData) {
-          res.data.forEach(element => {
-            if (profileData == element.profileData) {
-              // console.log(profileData, element.clickimg)
-              setid(element.clickimg)
-              setcloudname('adityascloud')
-              setpp(false)
-              // console.log(imagePublicId)
-            }
+    if(!localStorage.getItem('token')){
+      navigate('/')
+    }
+    else{
+      // console.log(localStorage.getItem('username'))
+     let name =  localStorage.getItem('username')
+     setprofileData(name)
 
-          });
-        }
-      })
+     axios.get('http://localhost:8001/WholeProfiles')
+     .then((res) => {
+       console.log(res.data)
+       if (localStorage.getItem('username')) {
+         res.data.forEach(element => {
+           if (localStorage.getItem('username') == element.profileData) {
+             console.log(profileData, element.clickimg)
+             setid(element.clickimg)
+             setcloudname('adityascloud')
+             setpp(false)
+             // console.log(imagePublicId)
+           }
+
+         });
+       }
+     })
+    }
+
+
 
   }, [])
 
@@ -107,9 +121,9 @@ function Profile() {
 
     }
   }
-  useEffect(() => {
-    direct_login_alert()
-  }, [])
+  // useEffect(() => {
+  //   direct_login_alert()
+  // }, [])
 
 
 
@@ -207,6 +221,10 @@ function Profile() {
             <h4 className='streak'><span>streak</span>=:{streak}</h4>
           }
           <Link className='task' to='/tasks'>Tasks</Link>
+          <button onClick={()=>{
+            localStorage.removeItem('token')
+            localStorage.removeItem('username')
+          }}>log out</button>
 
         </div>
 
